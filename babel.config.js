@@ -1,0 +1,24 @@
+module.exports = {
+  "presets": [
+    "@vue/cli-plugin-babel/preset"
+  ],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ],
+    ["component", 
+        {
+          "libraryName": "mint-ui",
+          "style": true
+        },
+        "mint-ui"
+    ]
+  ],
+  "ignore": [
+    "./static/lib/mui/js/*.js"
+  ]
+}
