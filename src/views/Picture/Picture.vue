@@ -40,7 +40,6 @@ export default {
     created(){
         this.getimgcategory()
         this.getimages(0)//页面初始传递值0
-        
     },
     mounted() {
         mui('.mui-scroll-wrapper').scroll({
@@ -49,6 +48,7 @@ export default {
     },
     methods:{
          getimgcategory(){//获取图片title
+         
           this.axios.get('api/getimgcategory').then(res=>{
               console.log(res);
                if(res.data.status === 0){
@@ -70,11 +70,16 @@ export default {
         goInfo(id){
             this.$router.push({ path: '/home/picInfo', query: { id }})
         }
-
     },
-    destroyed(){
-        localStorage.removeItem('reloaded')
+    beforeRouteEnter (to, from, next) {
+        next()
+        console.log(sessionStorage.getItem('reload'));
+        if(sessionStorage.getItem('reload') == 'yes'){
+            sessionStorage.setItem('reload','no')
+            location.reload();
+        }
     }
+
 }
 </script>
 <style lang="less" scoped>

@@ -37,7 +37,7 @@ const routes = [
       component:()=>import('../views/Picture/Picture.vue'),
       meta:{
         title:'图片'
-      }
+      },
     },
     {
       path:'/Home/Goods-List',
@@ -85,12 +85,10 @@ const router = new VueRouter({
 })
 router.beforeEach((to,from,next)=>{
   console.log('全局前置守卫',to,from);
-  // var reloaded = localStorage.getItem('reloaded') || '';
-  // if(reloaded == ''&&to.path == "/Picture"){
-  //   console.log('=======================================');
-  //   location.reload();
-  //   localStorage.setItem('reloaded','yes');
-  // }
+  
+  if(from.name == null && !(sessionStorage.getItem('reload')) ){//首次进入
+    sessionStorage.setItem('reload','yes')
+  }
   document.title = to.meta.title
   next()
 })

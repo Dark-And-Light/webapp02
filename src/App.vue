@@ -38,7 +38,8 @@ import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
-      falg:true
+      falg:true,
+      isShow: true
     }
   },
   methods: {
