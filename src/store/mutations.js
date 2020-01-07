@@ -23,14 +23,16 @@ export default{
         localStorage.setItem('carData',JSON.stringify(state.carData));
     },
     [UPDATE_CLICK](state,{id}){//car状态更新
-        state.carData.forEach(item=>{
+        state.carData =  state.carData.map(item=>{
             if(item.id == id ){
-                Vue.set(item,'click',!item.click)
-                
+                // Vue.set(item,'click',!item.click)
+                item.click = !item.click 
                 localStorage.setItem('carData',JSON.stringify(state.carData));
-                console.log('UPDATE_CLICK',state.carData);  
+                console.log("UPDATE_CLICK]",state.carData); 
             }
+            return item
         })
+        
     },
     [REMOVE_GOODS](state,{id}){
         state.carData.forEach((item,i)=>{

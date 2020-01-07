@@ -3,9 +3,9 @@ export default{
     addToCar(store,{data,num}){
         store.commit(ADD_CAR, {data,num})
     },
-    updateClick(store,{id,status}){
-        console.log('updateClick',id,status);
-        store.commit(UPDATE_CLICK,{id,status})
+    updateClick(store,{id}){
+        console.log('updateClick',id);
+        store.commit(UPDATE_CLICK,{id})
     },
     removeCar(store,{id}){
         store.commit(REMOVE_GOODS,{id})

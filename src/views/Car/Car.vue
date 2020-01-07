@@ -99,7 +99,7 @@ export default {
             'updateClick',
             'removeCar'
         ]),
-        changeClick(id,status){//监听状态更新修改状态
+        changeClick(id){//监听状态更新修改状态
             console.log(id);
             this.updateClick({id})
         },
